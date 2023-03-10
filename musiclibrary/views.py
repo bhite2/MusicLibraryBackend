@@ -21,7 +21,7 @@ def songs_list(request):
 def song_detail(request, pk):
     song = get_object_or_404(Song, pk=pk)
     if request.method == "GET":
-        serializer = SongSerializer(car)
+        serializer = SongSerializer(song)
         return Response(serializer.data)
     elif request.method == 'PUT':
         serializer = SongSerializer(song, data=request.data)
