@@ -6,5 +6,8 @@ from .models import Song
 
 @api_view(['GET'])
 def songs_list(request):
+    songs = Song.objects.all()
+    
+    serializer = SongSerializer(songs, many=True)
 
-    return Response('ok')
+    return Response(serializer.data)
